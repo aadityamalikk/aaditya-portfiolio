@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FaGithub, FaLinkedin, FaEnvelope, FaDownload, FaPython, FaReact, FaDatabase } from 'react-icons/fa';
 import { useTypingAnimation } from '../hooks/useTypingAnimation';
+import profileImage from '../assets/images/aaditya-profile.jpg';
 import './Hero.css';
 
 const Hero: React.FC = () => {
+  const [imageError, setImageError] = useState(false);
+
   const typedText = useTypingAnimation({
     strings: [
       'Data Science Enthusiast',
@@ -30,9 +33,16 @@ const Hero: React.FC = () => {
     }
   };
 
+  // Simple fallback avatar component
+  const PlaceholderAvatar = () => (
+    <div className="placeholder-avatar">
+      <span>AM</span>
+    </div>
+  );
+
   return (
     <section id="home" className="hero">
-      {/* Simple floating tech icons in empty spaces */}
+      {/* Enhanced floating tech icons */}
       <div className="floating-tech-hero tech-1">
         <FaPython />
       </div>
@@ -146,27 +156,20 @@ const Hero: React.FC = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
         >
           <div className="profile-photo-container">
-            <img 
-              src="/profile-photo.jpg"
-              alt="Aaditya Malik" 
-              className="profile-photo"
-              style={{
-                width: '350px',
-                height: '350px',
-                borderRadius: '50%',
-                objectFit: 'cover',
-                border: '4px solid #00d4aa',
-                boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.25)',
-                transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
-                display: 'block'
-              }}
-              onLoad={() => console.log('✅ Profile photo loaded successfully!')}
-              onError={(e) => {
-                console.error('❌ Failed to load profile photo');
-                console.log('Trying alternative path...');
-                e.currentTarget.src = './profile-photo.jpg';
-              }}
-            />
+            {!imageError ? (
+              <img 
+                src={profileImage}
+                alt="Aaditya Malik" 
+                className="profile-photo"
+                onError={() => {
+                  console.log('❌ Failed to load profile image, showing placeholder');
+                  setImageError(true);
+                }}
+                onLoad={() => console.log('✅ Profile image loaded successfully!')}
+              />
+            ) : (
+              <PlaceholderAvatar />
+            )}
           </div>
         </motion.div>
       </div>

@@ -28,6 +28,26 @@ export interface Activity {
   certificate?: boolean;
 }
 
+// Personal Information
+export const personalInfo = {
+  name: "Aaditya Malik",
+  title: "Data Science Enthusiast & MERN Stack Developer",
+  email: "aadityamalikcse02@gmail.com",
+  github: "https://github.com/aadityamalikk",
+  linkedin: "https://www.linkedin.com/in/aaditya-malik-5478012a6",
+  location: "Muzaffarnagar, Uttar Pradesh, India",
+  education: {
+    degree: "Bachelor of Technology in Computer Science & Engineering",
+    college: "Shri Ram Group of Colleges",
+    location: "Muzaffarnagar, Uttar Pradesh",
+    university: "Dr. A.P.J. Abdul Kalam Technical University (AKTU)",
+    universityLocation: "Lucknow, Uttar Pradesh",
+    expectedCompletion: "2026",
+    currentYear: "Pursuing"
+  },
+  bio: "Passionate Data Science enthusiast with hands-on experience in machine learning, statistical analysis, and data visualization. Currently pursuing B.Tech CSE with a focus on building intelligent solutions using Python, SQL, and modern web technologies. Experienced in hackathon participation and practical project development."
+};
+
 // Data Science & Hackathon Projects
 export const projects: Project[] = [
   {
@@ -102,19 +122,33 @@ export const skills: Skill[] = [
   { name: "Postman", level: 75, category: "tools", icon: "SiPostman" }
 ];
 
-// Extracurricular Activities (replacing experience)
+// Certificates
+export const certificates = [
+  {
+    id: 1,
+    name: "NSUT Delhi Hackathon Participation Certificate",
+    issuer: "Netaji Subhas University of Technology, Delhi",
+    date: "2024",
+    url: "/nsut-certificate.pdf",
+    description: "Certificate for participation in NSUT Delhi Hackathon where I developed an AI-Powered Library Management System"
+  }
+];
+
+// Updated Activities with correct NSUT information
 export const activities: Activity[] = [
   {
     id: 1,
-    title: "NSTU Delhi Hackathon",
+    title: "NSUT Delhi Hackathon Participation",
     organization: "Netaji Subhas University of Technology, Delhi",
     date: "2024",
     description: [
+      "Participated in prestigious hackathon at NSUT Delhi",
       "Developed AI-Powered Library Management System with intelligent book recommendations",
       "Implemented machine learning algorithms for predictive inventory management",
-      "Created user-friendly interface with real-time search and cataloging features"
+      "Created user-friendly interface with real-time search and cataloging features",
+      "Collaborated with team members to deliver a fully functional prototype"
     ],
-    achievement: "Selected for Final Round",
+    achievement: "Successfully completed hackathon and received participation certificate",
     technologies: ["Python", "Machine Learning", "TensorFlow", "Flask", "SQL", "React"],
     certificate: true
   },
@@ -126,24 +160,26 @@ export const activities: Activity[] = [
     description: [
       "Built comprehensive online travel agency website with booking system",
       "Integrated payment gateway and dynamic pricing algorithms",
-      "Implemented user review system and recommendation engine"
+      "Implemented user review system and recommendation engine",
+      "Designed responsive user interface for optimal user experience"
     ],
-    achievement: "Successfully Completed",
+    achievement: "Successfully completed project within hackathon timeline",
     technologies: ["React", "Node.js", "MongoDB", "Express", "Stripe API"],
     certificate: true
   },
   {
     id: 3,
-    title: "Data Science Professional Internship",
-    organization: "Professional Training Program",
+    title: "Data Science Professional Training",
+    organization: "Professional Development Program",
     date: "2024",
     description: [
       "Completed comprehensive data science training with hands-on projects",
-      "Developed predictive models for customer behavior analysis",
+      "Developed predictive models for customer behavior analysis achieving 87% accuracy",
       "Created interactive dashboards using Power BI and Python libraries",
-      "Gained expertise in statistical analysis and machine learning algorithms"
+      "Gained expertise in statistical analysis and machine learning algorithms",
+      "Applied data visualization techniques for business insights"
     ],
-    achievement: "Certificate of Completion",
+    achievement: "Certificate of Completion with Distinction",
     technologies: ["Python", "Pandas", "NumPy", "Scikit-learn", "Power BI", "SQL", "Excel"],
     certificate: true
   }
