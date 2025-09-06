@@ -26,14 +26,17 @@ jobs:
       uses: actions/setup-node@v4
       with:
         node-version: '18'
-        cache: 'npm'
+        # Remove npm cache to avoid conflicts
         
-    - name: Clear npm cache
-      run: npm cache clean --force
-        
-    - name: Install dependencies
+    - name: Clean and install dependencies
       run: |
+        # Remove any existing node_modules and lock files
         rm -rf node_modules package-lock.json
+        # Clear npm cache
+        npm cache clean --force
+        # Fresh install without using package-lock.json
+        npm install --no-package-lock
+        # Generate new package-lock.json
         npm install
       
     - name: Build project
